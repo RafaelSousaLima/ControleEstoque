@@ -1,15 +1,10 @@
 package br.com.estoque.repository.categoria;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import br.com.estoque.repository.produto.Produto;
 
 @Entity
 public class Categoria {
@@ -22,8 +17,8 @@ public class Categoria {
     @Column
     private String categoria;
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Produto> produto;
+//    @OneToMany(mappedBy = "categoria")
+//    private List<Produto> produto;
 
     public Categoria(Integer idCategoria, String categoria) {
         super();
@@ -33,14 +28,6 @@ public class Categoria {
 
     public Categoria() {
         super();
-    }
-
-    public List<Produto> getProduto() {
-        return produto;
-    }
-
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
     }
 
     public Integer getIdCategoria() {

@@ -1,12 +1,15 @@
 package br.com.estoque.service.produto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import br.com.estoque.repository.produto.Produto;
 import br.com.estoque.repository.produto.ProdutoRepository;
 
+@Stateless
 public class ProdutoService {
 
     @Inject
@@ -16,8 +19,13 @@ public class ProdutoService {
         return produtoRepository.buscarProdutos();
     }
 
-    public Produto buscarPeloIdProduto() {
-        return produtoRepository.buscarPeloIdProduto();
+    public Produto buscarPeloIdProduto(Integer id) {
+        return produtoRepository.buscarPeloIdProduto(id);
+    }
+
+    public Produto cadastrarProduto(Produto produto) {
+        produto.setDtEntrada(LocalDateTime.now());
+        return produtoRepository.cadastrarProduto(produto);
     }
 
 }
